@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/google"
       version = "5.6.0"
     }
+    random = {
+      source = "hashicorp/random"
+      version = "3.6.3"
+    }
   }
 }
 
@@ -13,9 +17,22 @@ provider "google" {
   region      = var.region
 }
 
+provider "random" {
+  # Configuration options
+}
 
-resource "google_storage_bucket" "demo-bucket" {
-  name          = var.gcs_bucket_name
+resource "random_id" "suffix" {
+  keepers = {
+    # Generate a new id each time we switch to a new AMI id
+    gcs_bucket_name = var.gcs_bucket_name
+  }
+
+  byte_length = 4
+}
+
+# Data Lake: GCS
+resource "google_storage_bucket" "dl" {
+  name          = "${var.gcs_bucket_name}-${random_id.suffix.hex}"
   location      = var.location
   force_destroy = true
 
@@ -30,9 +47,8 @@ resource "google_storage_bucket" "demo-bucket" {
   }
 }
 
-
-
-resource "google_bigquery_dataset" "demo_dataset" {
+# Data Warehouse: BigQuery
+resource "google_bigquery_dataset" "dw" {
   dataset_id = var.bq_dataset_name
   location   = var.location
 }
