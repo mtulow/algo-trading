@@ -3,4 +3,5 @@ python-dotenv
 google-cloud-secret-manager
 google-crc32c
 dlt
+apache-kafka
 

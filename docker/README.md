@@ -21,7 +21,6 @@ It contains the following key components:
 | Etcd (Metadata Storage) | ... |
 | PostgreSQL (Database) | 5432 |
 
-
 ---
 ---
 
