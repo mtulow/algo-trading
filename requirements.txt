@@ -1,0 +1,6 @@
+coinbase-advanced-py
+python-dotenv
+google-cloud-secret-manager
+google-crc32c
+dlt
+
