@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/go
 {
-	"name": "oh-my-posh",
+	"name": "trading-env",
 	"build": {
 	  "dockerfile": "Dockerfile",
 	  "args": {
@@ -11,10 +11,10 @@
 		"VARIANT": "1.19-bullseye",
 		// Options:
   
-		"POSH_THEME": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json",
+		// "POSH_THEME": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json",
   
 		// Override me with your own timezone:
-		"TZ": "America/Moncton",
+		"TZ": "America/Denver",
 		// Use one of the "TZ database name" entries from:
 		// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   
@@ -73,9 +73,9 @@
 				"icon": "terminal-powershell"
 				}
 			},
-			"terminal.integrated.defaultProfile.linux": "pwsh",
-			"terminal.integrated.defaultProfile.windows": "pwsh",
-			"terminal.integrated.defaultProfile.osx": "pwsh",
+			"terminal.integrated.defaultProfile.linux": "zsh",
+			"terminal.integrated.defaultProfile.windows": "zsh",
+			"terminal.integrated.defaultProfile.osx": "zsh",
 			"tasks.statusbar.default.hide": true,
 			"terminal.integrated.tabs.defaultIcon": "terminal-powershell",
 			"terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
