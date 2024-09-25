@@ -9,10 +9,12 @@ To continue, make sure you have [Visual Studio Code](https://code.visualstudio.c
 ### Option 1: Local VS Code
 
 1. Clone the repo and connect to it in VS Code:
+
     ```bash
-    $ cd your/desired/repo/location
-    $ git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
+    cd your/desired/repo/location
+    git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
     ```
+
 1. Download the [`Dev Containers`](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension from the VS Code marketplace. Full docs on devcontainers [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 1. Press Cmd + Shift + P (Mac) or Ctrl + Shift + P (Windows) to open the Command Pallette. Type in `Dev Containers: Open Folder in Container` and select the repo directory
 1. Wait for the container to build and the dependencies to install
