@@ -1,4 +1,3 @@
-
 # Anaconda (Python 3) & PostgreSQL (anaconda-postgres)
 
 Develop Anaconda & PostgreSQL applications in Python3. Installs dependencies from your environment.yml file and the Python extension.
@@ -54,6 +53,8 @@ Or in a Dockerfile:
 RUN conda install -y python=3.6
 ```
 
+---
+
 #### [Optional] Adding the contents of environment.yml to the image
 
 For convenience, this template will automatically install dependencies from the `environment.yml` file in the parent folder when the container is built. You can change this behavior by altering this line in the `.devcontainer/Dockerfile`:
@@ -71,14 +72,14 @@ Use this container to run Jupyter notebooks.
 
     ```json
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
- "forwardPorts": [8888],
+    "forwardPorts": [8888],
     ```
-.
+
 1. Edit the `./.devcontainer/devcontainer.json` file and add a `postStartCommand` command to start the Jupyter notebook web app after the container is created. Use nohup so it isn't killed when the command finishes. Logs will appear in `nohup.out`.
 
     ```json
-	// Use 'postStartCommand' to run commands after the container is created.
-	"postStartCommand": "nohup bash -c 'jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root &'",
+    // Use 'postStartCommand' to run commands after the container is created.
+    "postStartCommand": "nohup bash -c 'jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root &'",
     ```
 
 1. View the terminal output to see the correct URL including the access token:
@@ -89,7 +90,9 @@ Use this container to run Jupyter notebooks.
 
 1. Open the URL in a browser. You can edit and run code from the web browser.
 
-1. If you have the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) installed, you can also edit and run code from VS Code. 
+1. If you have the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) installed, you can also edit and run code from VS Code.
+
+---
 
 ### Using the forwardPorts property
 
@@ -100,7 +103,6 @@ By default, web frameworks and tools often only listen to localhost inside the c
 ```
 
 The `ports` property in `docker-compose.yml` [publishes](https://docs.docker.com/config/containers/container-networking/#published-ports) rather than forwards the port. This will not work in a cloud environment like Codespaces and applications need to listen to `*` or `0.0.0.0` for the application to be accessible externally. Fortunately the `forwardPorts` property does not have this limitation.
-
 
 ---
 
