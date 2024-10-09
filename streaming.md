@@ -1,4 +1,5 @@
 # Streaming
+[source](https://kafka.apache.org/quickstart)
 
 ## Apache Kafka
 
@@ -63,9 +64,28 @@ Topic: quickstart-events Partition: 0    Leader: 0   Replicas: 0 Isr: 0
 ```
 
 ### 4. Send some messages
+A Kafka client communicates with the Kafka brokers via the network for writing (or reading) events. Once received, the brokers will store the events in a durable and fault-tolerant manner for as long as you need—even forever.
+
+Run the console producer client to write a few events into your topic. By default, each line you enter will result in a separate event being written to the topic.
+```sh
+$ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+>This is my first event
+>This is my second event
+```
+You can stop the producer client with Ctrl-C at any time.
 
 ### 5. Start a consumer
+Open another terminal session and run the console consumer client to read the events you just created:
+```sh
+$ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+This is my first event
+This is my second event
+```
+You can stop the consumer client with Ctrl-C at any time.
 
+Feel free to experiment: for example, switch back to your producer terminal (previous step) to write additional events, and see how the events immediately show up in your consumer terminal.
+
+Because events are durably stored in Kafka, they can be read as many times and by as many consumers as you want. You can easily verify this by opening yet another terminal session and re-running the previous command again.
 ### 6. Setting up a multi-broker cluster
 
 ---
