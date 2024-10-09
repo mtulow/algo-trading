@@ -47,6 +47,20 @@ $ docker run -p 9092:9092 apache/kafka-native:3.8.0
 Once the Kafka server has successfully launched, you will have a basic Kafka environment running and ready to use.
 
 ### 3. Create a topic
+Kafka is a distributed event streaming platform that lets you read, write, store, and process events (also called records or messages in the documentation) across many machines.
+
+Example events are payment transactions, geolocation updates from mobile phones, shipping orders, sensor measurements from IoT devices or medical equipment, and much more. These events are organized and stored in topics. Very simplified, a topic is similar to a folder in a filesystem, and the events are the files in that folder.
+
+So before you can write your first events, you must create a topic. Open another terminal session and run:
+```sh
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+```
+All of Kafka's command line tools have additional options: run the kafka-topics.sh command without any arguments to display usage information. For example, it can also show you details such as the partition count of the new topic:
+```sh
+$ bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+Topic: quickstart-events        TopicId: NPmZHyhbR9y00wMglMH2sg PartitionCount: 1       ReplicationFactor: 1	Configs:
+Topic: quickstart-events Partition: 0    Leader: 0   Replicas: 0 Isr: 0
+```
 
 ### 4. Send some messages
 
